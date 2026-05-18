@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline System - Home</title>
+    <link rel="stylesheet" href="style.css">
+<style>   
+
+body background, html{
+ margin:0;
+ padding:0;
+ font-family:'Segoe UI',sans-serif;
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ background:url("Anime pics and other stuff.gif") center/cover no-repeat fixed;
+ color:white;}
+ 
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+
+    background:
+    linear-gradient(
+        rgba(8,12,22,.65),
+        rgba(15,23,42,.75)
+    ),
+    url("airport.gif");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:white;
+    overflow:hidden;
+}
+
+.home-body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.home-card{
+    width:420px;
+    padding:45px;
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.5);
+
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+}
+
+h1{
+font-size:35px;
+margin-bottom:10px;
+
+background:
+linear-gradient(
+90deg,
+#38bdf8,
+#06b6d4
+);
+
+background-clip:text;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+font-size:16px;
+color:#cbd5e1;
+margin-bottom:25px;
+}
+
+.member-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-bottom:30px;
+}
+
+.member{
+    display:block;
+    padding:12px;
+    border-radius:14px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.05);
+    transition:.3s;
+    font-weight:bold;
+    color:white;
+    text-decoration:none;
+}
+
+.member:hover{
+    transform:translateX(8px);
+    background:rgba(56,189,248,.25);
+    box-shadow:0 0 20px rgba(56,189,248,.5);
+}
+
+body {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+
+body.fade-out {
+    opacity: 0;
+}
+
+
+h1, .hero h1 {
+    animation: slideInHeader 0.8s ease-out;
+}
+
+@keyframes slideInHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+body {
+    animation: fadeInPage 0.6s ease;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.member:hover{
+transform:translateX(8px);
+
+background:
+rgba(56,189,248,.25);
+
+box-shadow:
+0 0 20px rgba(56,189,248,.5);
+}
+
+.menu-btn{
+display:inline-block;
+
+padding:15px 25px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+font-size:16px;
+
+color:white;
+
+background:
+linear-gradient(
+90deg,
+#0ea5e9,
+#38bdf8
+);
+
+box-shadow:
+0 0 20px rgba(56,189,248,.6);
+
+transition:.4s;
+}
+
+.menu-btn:hover{
+transform:scale(1.08);
+
+box-shadow:
+0 0 35px rgba(56,189,248,1);
+}
+
+</style>
+</head>
+<body class="home-body">
+
+    <div class="home-card">
+
+        <h1>✈ Bading Airline System</h1>
+        <p class="subtitle">Developed by:</p>
+
+<div class="member-list">
+    <a class="member" href="https://www.facebook.com/profile.php?id=61578637245679" target="_blank">Ginalyn Villafuerte</a>
+    <a class="member" href="https://www.facebook.com/charlesandrew.macapanas.3" target="_blank">Charles Andrew Macapanas</a>
+    <a class="member" href="https://www.facebook.com/amingroljan284" target="_blank">Roljan Kintao Aming</a>
+    <a class="member" href="https://www.facebook.com/larence.caga.2024/" target="_blank">Larence Caga</a>
+</div>
+
+        <a href="Seat.html" class="menu-btn">Go to Reservation Menu</a>
+
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.body.classList.remove("fade-out");
+
+
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function(e) {
+
+            const href = this.getAttribute("href");
+
+            // ignore external links (like Facebook)
+            if (!href || href.startsWith("#") || this.target === "_blank") {
+                return;
+            }
+
+            e.preventDefault();
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    });
+
+});
+</script>
+</body>
+</html>
